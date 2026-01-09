@@ -52,13 +52,16 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #2a46e4;
+    /* background: #2a46e4; */
+    background: #0c6bb3 ;
     z-index: 2;
 }
 
 .form-wrapper {
     width: 100%;
     max-width: 100%;
+    align-items: center;
+    display:inline-block;
 }
 
 .brand-logo {
@@ -68,10 +71,10 @@ a {
 }
 
 .login-title {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #000;
+    color: #eeeded;
 }
 
 .login-subtitle {
@@ -125,7 +128,7 @@ a {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
-    color: #444;
+    color: #ffffff;
 }
 
 .form-input {
@@ -147,7 +150,7 @@ a {
     width: 100%;
     padding: 14px;
     background-color: #ffffff;
-    color: rgb(7, 22, 236);
+    color: #0c6bb3;
     border: none;
     border-radius: 8px;
     font-size: 16px;

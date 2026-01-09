@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <link rel="icon" href="img/smi.svg" type="image/png">
+    <title>Sign In - Hotspot</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+
+    <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+    <script src="md5.js"></script>
+    <script>
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+    </script>
+
+    <div class="login-container">
+        <div class="login-form-side">
+            <div class="form-wrapper">
+                <img src="img/logo.png" alt="Logo" class="brand-logo" onerror="this.style.display='none'"> 
+                
+                <h1 class="login-title">Selamat Datang di PT. SMI</h1>
+
+
+                <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                    <input type="hidden" name="dst" value="$(link-orig)" />
+                    <input type="hidden" name="popup" value="true" />
+                    
+                    <div class="input-group">
+                        <label class="input-label">Username</label>
+                        <input class="form-input" name="username" type="text" value="$(username)" placeholder="Please enter your username" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Password</label>
+                        <input class="form-input" type="password" placeholder="Please enter your password"  id="myInput"/>
+                    </div>
+
+                    <div style="margin-bottom: 20px; font-size: 18px; color: #666;">
+                        <input type="checkbox" onclick="
+                            var x = document.getElementById('myInput');
+                             if (x.type === 'password') { 
+                                x.type = 'text'; 
+                            } 
+                             else { 
+                                x.type = 'password'; 
+                            }"> 
+                             Show password
+
+                    </div>
+                    
+
+                    <div style="color: red; font-size: 14px; margin-bottom: 10px;"></div>
+
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+
+                <div class="footer-text">&copy; PT. SMI</div>
+            </div>
+        </div>
+
+        <div class="login-banner-side">
+            <!-- <div class="banner-circle">
+                <img viewBox="0 0 24 24" src="img/2.svg" alt="Slide 1" class="slide-image-grid">
+            </div> -->
+            <!-- <h2>Banner example</h2>
+            <p>Width: 50% Height: 100vh</p> -->
+            
+                    <div class="slideshow-box">
+                        <!-- <div class="slideshow-container-grid"> -->
+                            <div class="slide-wrapper-grid" id="slideShowGrid">
+                                <img src="img/2.svg" alt="Slide 1" class="slide-image-grid">
+                                <img src="img/3.svg" alt="Slide 2" class="slide-image-grid">
+                                <img src="img/4.svg" alt="Slide 3" class="slide-image-grid">
+                                <img src="img/5.svg" alt="Slide 4" class="slide-image-grid">
+                            </div>
+                    </div>
+        </div>
+
+    </div>
+
+                <script type="text/javascript" src="security-popup.js"></script>
+    </div>
+</body>
+</html>

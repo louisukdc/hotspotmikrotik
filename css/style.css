@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Open Sans','Arial',sans-serif;
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+   
 }
 
 body {
@@ -28,7 +28,7 @@ a {
     line-height: 1.6;
     min-height: 10vh; 
     display: flex;
-    /* flex-direction: column; */
+   
     flex-wrap: nowrap;
     overflow: auto;
 }
@@ -40,21 +40,38 @@ a {
     height: 100%;
     max-width: 1500px;
     border-radius: 10%;
-    /* min-height: 100vh; */
-    /* height: 10px; */
+   
+   
 }
 
-.login-form-side, .login-banner-side {
+.login-form-side {
     flex: 1 ;
     max-width: 30%;
-    padding: 20px 50px 150px 70px;
+    padding: 20px 50px 250px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background: #2a46e4; */
+   
     background: #0c6bb3 ;
     z-index: 2;
+    border: 5px solid #f6f7f64b ;
+    border-radius: 0px 30px 10px;
+}
+
+.login-banner-side {
+    flex: 1 ;
+    max-width: 30%;
+    padding: 20px 50px 250px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+    background: #0c6bb3 ;
+    z-index: 2;
+   
+    border-radius: 0px 30px 10px;
 }
 
 .form-wrapper {
@@ -78,7 +95,7 @@ a {
 }
 
 .description {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: normal;
     margin-bottom: 10px;
     color: #eeeded;
@@ -90,7 +107,7 @@ a {
     margin-bottom: 10px;
     display:inline;
     border-bottom: 1px solid #ccc ;
-    /* margin-left:auto; */
+   
 }
 
 .login-subtitle {
@@ -189,11 +206,11 @@ a {
 
 
 .login-banner-side {
-    /* flex: 1 1 500px; */
+   
     flex: 3;
     min-width: 900px;
     color: white;
-    /* background-color: #0c6bb3 #046cb4 #94bddc #09558f #035995 #255173 303030; */
+   
     background-color: #d8dee4ce ;
     background-clip: border-box;
     box-shadow: #00000069 0px 4px 20px;
@@ -430,6 +447,40 @@ a {
 }
 
 
+.nav-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px 20px;
+    margin: auto 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+    z-index: 10;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+    padding: 30px;
+    margin: 15px;
+}
+
 .security-content {
     margin: 10px auto;
     border: 2px solid #f0ad4e; 
@@ -488,14 +539,14 @@ a {
 }
 
 .slide-wrapper-grid {
-    display: flex;
+    display: block;
     width: 400%;
     height: 70%;
     position: relative;
-    /* justify-content: center; */
-    /* border-radius: 20%; */
-    /* margin: auto; */
-    /* object-fit: fill; */
+   
+   
+   
+   
     overflow: hidden;
     align-items: center;
     transition: transform 0.6s ease-in-out;
@@ -581,63 +632,79 @@ a {
     }
 }
 
-/* --- PENGATURAN KHUSUS HP (MOBILE & TABLET) - REVISI GAMBAR UTUH --- */
-@media screen and (max-width: 900px) {
+
+
+@media screen and (max-width: 960px) {
     
-    /* 1. Izinkan Scroll & Reset Layout */
-    html, body {
-        overflow-y: auto !important;
-        height: auto !important;
-    }
-
+   
     .login-container {
-        flex-direction: column; /* Atas-Bawah */
+        flex-direction: column;
+        width: 100%;
         height: auto !important;
-        flex-wrap: nowrap;
+        border-radius: 0;
     }
 
-    /* 2. FORM DI ATAS */
+   
     .login-form-side {
-        flex: none;
+        max-width: 100%; 
         width: 100%;
-        padding: 30px 20px;
-        order: 1; /* Form duluan */
+        flex: none;
+        padding: 40px 20px;
+        order: 2;
+        border-radius: 0 0 20px 20px;
+        min-height: auto;
     }
 
-    /* 3. SLIDESHOW DI BAWAH */
+   
     .login-banner-side {
+        max-width: 100%;
+        width: 100%;
+        min-width: 0 !important;
         flex: none;
-        width: 100%;
-        
-        /* Hapus height: 400px fix. Ganti jadi auto agar fleksibel */
-        height: auto; 
-        min-height: 300px; /* Tinggi minimal agar tidak hilang */
-        
-        order: 2; /* Slideshow belakangan */
-        padding: 20px 10px; /* Kurangi padding agar gambar lebih lega */
-        border-radius: 30px 30px 0 0;
+        height: 250px;
+        padding: 10px;
+        order: 1;
+        border-radius: 20px 20px 0 0;
     }
 
-    /* 4. PERBAIKAN WADAH GAMBAR AGAR TIDAK TERPOTONG */
-    .slideshow-container-grid {
+   
+    .slideshow-box {
         width: 100%;
-        max-width: 350px; /* Batasi lebar agar tidak terlalu raksasa di HP besar */
-        
-        /* KUNCI: Gunakan Aspect Ratio Persegi (1:1) */
-        /* Ini membuat kotak gambar selalu proporsional di HP */
-        aspect-ratio: 1 / 1; 
-        height: auto; 
-        
-        background: transparent;
-        box-shadow: none;
-        margin: 0 auto; /* Tengah */
+        height: 100%;
     }
 
-    /* 5. PERBAIKAN GAMBAR */
+    .slide-wrapper-grid {
+        width: 100%;
+        height: 100%;
+    }
+    
     .slide-image-grid {
-        /* Pastikan gambar pas di tengah kotak */
-        object-fit: contain !important; 
-        padding: 0; /* Hapus padding agar gambar maksimal (full) */
-        border-radius: 10px;
+        object-fit: contain;
     }
+
+   
+    .logo {
+        width: 180px;
+        margin-bottom: 20px;
+    }
+
+    .login-title {
+        font-size: 18px;
+    }
+
+   
+    .nav-btn {
+        padding: 10px;
+    }
+}
+
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }

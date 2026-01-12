@@ -18,6 +18,25 @@
         <input type="hidden" name="popup" value="true" />
     </form>
     <script src="md5.js"></script>
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="popup" id="security-popup">
+        <div class="security-content">
+            <h5>🛡️ PERINGATAN KEAMANAN JARINGAN PT. SMI</h5>
+            <p>Harap perhatikan panduan penting di bawah ini sebelum menggunakan jaringan *hotspot* kantor.</p>
+            <div class="slideshow-container">
+                <div class="slide-wrapper" id="slide-wrapper">
+                    <img src="img/2.svg" alt="Slide Keamanan 1" class="slide-image">
+                    <img src="img/3.svg" alt="Slide Keamanan 2" class="slide-image">
+                    <img src="img/4.svg" alt="Slide Keamanan 3" class="slide-image">
+                    <img src="img/5.svg" alt="Slide Keamanan 4" class="slide-image">
+                </div>
+            </div>
+            <p style="font-size: 12px; margin-top: 10px; color: #cc0000; font-weight: bold;">Dengan menekan tombol di bawah, Anda menyatakan telah memahami dan setuju mematuhi Kebijakan IT Perusahaan.</p>
+        </div>
+        <button type="button" onclick="closePopup()">SAYA PAHAM & LANJUT LOGIN</button>
+    </div>
+    
     <script>
         function doLogin() {
             document.sendin.username.value = document.login.username.value;
@@ -34,8 +53,9 @@
                 <h1 class="login-title">Selamat Datang di PT. SMI</h1>
                 <h1 class="description">Untuk mengakses internet silahkan login terlebih dahulu</h1>
 
+
                 <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
-                    <input type="hidden" name="dst" value="$(link-orig)" />
+                    <input type="hidden" name="dst" value="https://www.google.com" />
                     <input type="hidden" name="popup" value="true" />
                     
                     <div class="input-group">
@@ -45,7 +65,7 @@
 
                     <div class="input-group">
                         <label class="input-label">Password</label>
-                        <input class="form-input" type="password" placeholder="Please enter your password"  id="myInput"/>
+                        <input class="form-input" name="password"type="password" placeholder="Please enter your password"  id="myInput"/>
                     </div>
 
                     <div style="margin-bottom: 20px; font-size: 12px; color: #f7f6f6; padding-top: 10px;">
@@ -68,6 +88,20 @@
                 </form>
 
                 <div class="footer-text">&copy; PT. SMI</div>
+
+                    <!-- <p class="info $(if error)alert$(endif)">
+                        $(if error == "") 
+                            $(if trial == 'yes')
+                            Free trial available
+                                <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc) style= margin: 20px; padding: 20px;font-size: 12px; color: red">
+                                click it!
+                                </a>.
+                            $(endif)
+                        $(endif)
+
+                        $(if error)$(error)$(endif)
+                    </p> -->
+
             </div>
         </div>
 

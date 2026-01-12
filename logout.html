@@ -1,44 +1,106 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />   
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="expires" content="-1">
-<title>Internet hotspot - Log out</title>
-<link rel="stylesheet" href="css/style.css">
-<script>
-    function openLogin() {
-	if (window.name != 'hotspot_logout') return true;
-	open('$(link-login)', '_blank', '');
-	window.close();
-	return false;
-    }
-</script>
+    $(if refresh-timeout)
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+    $(endif)
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <title>Logout Success - PT. SMI </title>
+    <link rel="icon" href="img/smi.svg" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        function openLogin() {
+            if (window.name != 'hotspot_logout') return true;
+            open('$(link-login)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+            window.close();
+            return false;
+        }
+    </script>
 </head>
 
-<body>
-    <div class="ie-fixMinHeight">
-        <div class="main">
-            <div class="wrap">
-                <h1>You have just logged out!</h1> 
-                <table>  
-                    <tr><td>Username</td><td>$(username)</td></tr>
-                    <tr><td>IP address</td><td>$(ip)</td></tr>
-                    <tr><td>MAC address</td><td>$(mac)</td></tr>
-                    <tr><td>Session time</td><td>$(uptime)</td></tr>
-                    $(if session-time-left)
-                    <tr><td>Time left</td><td>$(session-time-left)</td></tr>
-                    $(endif)
-                    <tr><td>Bytes up / down:</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
-                </table>
+<body class="login-body" $(if advert-pending = 'yes') onLoad="openAdvert()" $(endif)>
+    
+    <div class="overlay" id="overlay"></div> 
 
+    <div class="login-container">
+        
+
+        <div class="login-form-side">
+            <div class="form-wrapper">
+                <img src="img/logo3.png" alt="logo_ptsmi" class="logo">                
+                
+                <h1 class="login-title">Logout Berhasil</h1>
+                <p class="description">
+                    Terima kasih telah menggunakan jaringan hotspot PT. SMI. Koneksi Anda telah diputus.
+                </p>
 
                 <form action="$(link-login)" name="login" onSubmit="return openLogin()">
-                <input type="submit" value="Log in">
-                </form>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Username</label>
+                        <div class="form-input" style="background-color: #e9ecef; color: #555;">$(username)</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">IP Address</label>
+                        <div class="form-input" style="background-color: #e9ecef; color: #555;">$(ip)</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Durasi Pemakaian</label>
+                        <div class="form-input" style="background-color: #e9ecef; color: #555;">$(uptime)</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Penggunaan Data (Up/Down)</label>
+                        <div class="form-input" style="background-color: #e9ecef; color: #555;">
+                            $(bytes-in-nice) / $(bytes-out-nice)
+                        </div>
+                    </div>
+
+                    $(if session-time-left)
+                    <div class="input-group">
+                        <label class="input-label">Sisa Waktu</label>
+                        <div class="form-input" style="background-color: #ffeeba; color: #856404;">$(session-time-left)</div>
+                    </div>
+                    $(endif)
+
+                    <button type="submit" class="btn-primary" style="margin-top: 20px;">Login Kembali</button>
+
+                <!-- <form name="login" action="$(link-login)"post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                    <button type="submit" class="btn-primary" style="margin-top: 20px;">Login Kembali</button>
+                    
+                </form> -->
+
+
+                <script src="/md5.js"></script>
+
+
+                <div class="footer-text">&copy; PT. SMI - Disconnected</div>
             </div>
         </div>
+
+
+        <div class="login-banner-side">
+            <div class="slideshow-box">
+                <div class="slide-wrapper-grid" id="slideShowGrid">
+                    <img src="img/2.svg" alt="Slide 1" class="slide-image-grid">
+                    <img src="img/3.svg" alt="Slide 2" class="slide-image-grid">
+                    <img src="img/4.svg" alt="Slide 3" class="slide-image-grid">
+                    <img src="img/5.svg" alt="Slide 4" class="slide-image-grid">
+                </div>
+                <button class="nav-btn prev" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="nav-btn next" onclick="plusDivs(1)">&#10095;</button>
+            </div>
+        </div>
+
     </div>
+
+    <script type="text/javascript" src="security-popup.js"></script>
 
 </body>
 </html>

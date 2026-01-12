@@ -16,25 +16,45 @@ function plusDivs(n) {
 }
 
 function showDivs(n) {
-  let i;
-  let x = document.getElementsByClassName("slide-image-grid");
   
-  if (x.length === 0) return; 
+  let mainSlides = document.getElementsByClassName("slide-image-grid");
+  let popupSlides = document.getElementsByClassName("slide-image"); 
+  
+  
+  let totalSlides = Math.max(mainSlides.length, popupSlides.length);
+  if (totalSlides === 0) return;
 
   
-  if (n > x.length) {slideIndex = 1} 
+  if (n > totalSlides) {slideIndex = 1} 
+  if (n < 1) {slideIndex = totalSlides}
   
-  if (n < 1) {slideIndex = x.length}
   
-  
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-    x[i].classList.remove("fade"); 
+  if (mainSlides.length > 0) {
+      for (let i = 0; i < mainSlides.length; i++) {
+        mainSlides[i].style.display = "none";  
+        mainSlides[i].classList.remove("fade");
+      }
+      
+      let mainIndex = (slideIndex - 1) % mainSlides.length;
+      if (mainSlides[mainIndex]) {
+          mainSlides[mainIndex].style.display = "block";  
+          mainSlides[mainIndex].classList.add("fade");
+      }
   }
 
   
-  x[slideIndex-1].style.display = "block";  
-  x[slideIndex-1].classList.add("fade"); 
+  if (popupSlides.length > 0) {
+      for (let i = 0; i < popupSlides.length; i++) {
+        popupSlides[i].style.display = "none";
+        popupSlides[i].classList.remove("fade");
+      }
+      
+      let popupIndex = (slideIndex - 1) % popupSlides.length;
+      if (popupSlides[popupIndex]) {
+          popupSlides[popupIndex].style.display = "block";
+          popupSlides[popupIndex].classList.add("fade");
+      }
+  }
 }
 
 function showNextSlide() {
@@ -71,10 +91,7 @@ function showNextSlide() {
 
 
 function startSlideshow() {
-
     if (slideshowTimer) clearInterval(slideshowTimer);
-
-    
     slideshowTimer = setInterval(() => {
         showDivs(slideIndex += 1);
     }, SLIDE_INTERVAL);
@@ -85,20 +102,14 @@ function openPopup() {
     if (popup && overlay) {
         popup.classList.add("open-popup");
         overlay.classList.add("open-overlay");
-        
     }
 }
 
 function closePopup() {
-
-    
-    
     if (popup && overlay) {
         popup.classList.remove("open-popup");
         overlay.classList.remove("open-overlay");
     }
-    
-    
     if (document.login && document.login.username) {
         document.login.username.focus();
     }

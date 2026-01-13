@@ -71,7 +71,7 @@ function showNextSlide() {
     slideIndex = (slideIndex + 1) % totalSlides;
     
     
-    const offset = slideIndex * 100/totalSlides;
+    const offset = slideIndex * 100/totalSlides/2;
 
     
     if (wrapperPopup) {

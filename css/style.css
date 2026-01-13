@@ -169,8 +169,8 @@ a {
 
 .logo {
     display: inline-block;
-    width: 95%;
-    max-width: 700px;
+    width: 95%; /* Mengambil hampir seluruh lebar kontainer */
+    max-width: 500px; /* Tapi tidak akan lebih dari 500px di layar lebar */
     height: auto;
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
@@ -757,7 +757,10 @@ a {
     }
 
    
-   
+    /* .logo {
+        width: 180px;
+        margin-bottom: 20px;
+    } */
 
     .login-title {
         font-size: 18px;
@@ -772,9 +775,9 @@ a {
 
 .fade {
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 5s;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 5s ease-in-out;
   color: white;
   display: flex;
   justify-content: center;

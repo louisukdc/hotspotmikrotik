@@ -31,9 +31,9 @@
 
         <div class="login-form-side">
             <div class="form-wrapper">
-                <img src="img/logo3.png" alt="logo_ptsmi" class="logo">                
+                <img src="img/logo3x.png" alt="logo_ptsmi" class="logo">                
                 
-                <h1 class="login-title">Logout Berhasil</h1>
+                <h1 class="login-title-logout">Logout Berhasil</h1>
                 <p class="description">
                     Terima kasih telah menggunakan jaringan hotspot PT. SMI. Koneksi Anda telah diputus.
                 </p>
@@ -51,23 +51,9 @@
                     </div>
 
                     <div class="input-group">
-                        <label class="input-label">Durasi Pemakaian</label>
-                        <div class="form-input" style="background-color: #e9ecef; color: #555;">$(uptime)</div>
+                        <label class="input-label">Mac Address</label>
+                        <div class="form-input" style="background-color: #e9ecef; color: #555;">$(mac)</div>
                     </div>
-
-                    <div class="input-group">
-                        <label class="input-label">Penggunaan Data (Up/Down)</label>
-                        <div class="form-input" style="background-color: #e9ecef; color: #555;">
-                            $(bytes-in-nice) / $(bytes-out-nice)
-                        </div>
-                    </div>
-
-                    $(if session-time-left)
-                    <div class="input-group">
-                        <label class="input-label">Sisa Waktu</label>
-                        <div class="form-input" style="background-color: #ffeeba; color: #856404;">$(session-time-left)</div>
-                    </div>
-                    $(endif)
 
                     <button type="submit" class="btn-primary" style="margin-top: 20px;">Login Kembali</button>
 
@@ -80,7 +66,11 @@
                 <script src="/md5.js"></script>
 
 
-                <div class="footer-text">&copy; PT. SMI - Disconnected</div>
+                <div class="footer-text">
+                    <a href="https://ptsmi.com/" style="text-decoration: none; color: inherit;">
+                        &copy; PT. SMI
+                    </a>
+                </div>
             </div>
         </div>
 

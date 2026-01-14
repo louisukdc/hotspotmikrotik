@@ -104,7 +104,7 @@ a {
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    max-width: 1500px;
+    max-width: none;
     border-radius: 10%;
    
    
@@ -112,8 +112,8 @@ a {
 
 .login-form-side {
     flex: 1 ;
-    max-width: 30%;
-    padding: 20px 50px 250px 40px;
+    max-width: none;
+    padding: 40px 50px 320px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,14 +121,14 @@ a {
    
     background: #0c6bb3 ;
     z-index: 2;
-    border: 5px solid #f6f7f64b ;
-    border-radius: 0px 30px 10px;
+    /* border: 5px solid #f6f7f64b ; */
+    /* border-radius: 0px 30px 0px; */
 }
 
 .login-banner-side {
     flex: 1 ;
-    max-width: 30%;
-    padding: 20px 50px 250px 40px;
+    max-width: none;
+    padding: 30px 70px 250px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -157,7 +157,35 @@ a {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
+    padding-left: 25%;
     color: #eeeded;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding-top: 5%;
+}
+
+.login-title-status {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 80%;
+    /* padding-right: 30px; */
+    color: #eeeded;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding-top: 5%;
+}
+
+.login-title-logout {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 20%;
+    color: #eeeded;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding-top: 5%;
 }
 
 .description {
@@ -169,11 +197,19 @@ a {
 
 .logo {
     display: inline-block;
-    width: 95%; /* Mengambil hampir seluruh lebar kontainer */
-    max-width: 500px; /* Tapi tidak akan lebih dari 500px di layar lebar */
+    width: 25%;
+    max-width: 500px;
     height: auto;
+    align-items: center;
+   
     margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+   
+    border: 2px solid #eaedf0;
+    border-radius: 30%;  
+    background-color: #ffffff;
+   
+   
+    margin-left: 35%;
    
 }
 
@@ -261,6 +297,24 @@ a {
 }
 
 .btn-primary:hover {
+    background-color: #004494;
+}
+
+.btn-primary-status {
+    width: 100%;
+    padding: 14px;
+    background-color: #ffffff;
+    color: #eaedf0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s;
+}
+
+.btn-primary-status:hover {
     background-color: #004494;
 }
 
@@ -503,14 +557,15 @@ a {
     display: block;
     position: relative;
     overflow: hidden;
-    transition: transform 0.5s ease-in-out; 
+   
+    transition: transform 2s ease-in-out; 
 }
 
 .slide-image {
     width: 100%;
     height: 200px;
     object-fit: contain;
-    display: none;
+    display: flex;
     margin: 0 auto;
     flex-shrink: 0;
 }
@@ -525,24 +580,26 @@ a {
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
-    width: auto;
-    padding: 16px 20px;
-    margin: auto 10px 30px;
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;  
+    margin: auto 30px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
     user-select: none;
     background-color: rgba(0,0,0,0.3);
     border: none;
     z-index: 10;
-    bottom: 47%
 }
 
 .next {
     right: 0;
-    border-radius: 3px 0 0 3px;
 }
 
 .prev {
@@ -617,13 +674,9 @@ a {
     width: 400%;
     height: 70%;
     position: relative;
-   
-   
-   
-   
     overflow: hidden;
     align-items: center;
-    transition: transform 0.6s ease-in-out;
+    transition: transform 5.6s ease-in-out;
 
 }
 
@@ -650,22 +703,38 @@ a {
 }
 
 
-@media screen and (max-width: 768px) {
-    .container-grid {
-        grid-template-columns: 1fr !important;
-        gap: 10px !important;
-        padding: 20px !important;
+@media (max-width: 768px) {
+   
+    .login-banner-side {
+        display: none !important;
     }
 
-    .slideshow-container-grid {
-        height: 250px !important;
+   
+    .login-container {
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
     }
 
-    .line.wide-layout {
-        width: 100% !important;
+   
+    .login-form-side {
+        width: 100%;
+        min-height: 100vh;
+        flex: 1;
+        border-radius: 0;
+        justify-content: center;
+        border: none;
+        box-sizing: border-box;
+    }
+    
+   
+    .login-body {
+        min-height: 100vh;
+        height: auto;
+        overflow-y: auto;
     }
 }
-
 
 
 @media screen and (max-width: 1024px) {
@@ -699,6 +768,7 @@ a {
 
     .login-form-side {
         width: 100%;
+        padding-right: 20px;
     }
 
     .details-grid {
@@ -722,13 +792,22 @@ a {
     .login-form-side {
         max-width: 100%; 
         width: 100%;
+        /* align-items: center; */
+        /* position: relative; */
         flex: none;
-        padding: 40px 20px;
-        order: 2;
-        border-radius: 0 0 20px 20px;
+        
+        /* margin-left: 10%; */
+        padding: 30px 0px 0px -10px;
+        /* order: 2; */
+        /* border-radius: 0 0 20px 20px; */
         min-height: auto;
     }
 
+    .login-title-status {
+        padding-left: 20%;
+        margin-left: 20%;
+        align-items: end;
+    }
    
     .login-banner-side {
         max-width: 100%;
@@ -757,10 +836,7 @@ a {
     }
 
    
-    /* .logo {
-        width: 180px;
-        margin-bottom: 20px;
-    } */
+   
 
     .login-title {
         font-size: 18px;
@@ -775,8 +851,10 @@ a {
 
 .fade {
   animation-name: fade;
-  animation-duration: 5s;
+ 
+  animation-duration: 5s; 
   opacity: 1;
+ 
   transition: opacity 5s ease-in-out;
   color: white;
   display: flex;
@@ -785,7 +863,13 @@ a {
   cursor: pointer;
 }
 
-@keyframes fade {
+/* .slide-image.fade {
+    animation-name: fade;
+   
+    animation-duration: 5s; 
+} */
+
+/* @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
-}
+} */

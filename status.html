@@ -41,9 +41,9 @@
         
         <div class="login-form-side">
             <div class="form-wrapper">
-                <img src="img/logo3.png" alt="logo_ptsmi" class="logo">                
+                <img src="img/logo3x.png" alt="logo_ptsmi" class="logo">                
                 
-                <h1 class="login-title">Status Koneksi</h1>
+                <h1 class="login-title-status">Status Koneksi</h1>
                 <p class="description">
                     $(if login-by == 'trial')
                         Halo, Trial User!
@@ -60,23 +60,16 @@
                     </div>
 
                     <div class="input-group">
+                        <label class="input-label">Mac Address</label>
+                        <div class="form-input" style="background-color: #e9ecef; color: #555;">$(mac)</div>
+                    </div>
+                    
+                    <div class="input-group">
                         <label class="input-label">Upload / Download</label>
                         <div class="form-input" style="background-color: #e9ecef; color: #555;">
                             $(bytes-in-nice) / $(bytes-out-nice)
                         </div>
                     </div>
-
-                    <div class="input-group">
-                        <label class="input-label">Durasi Terkoneksi</label>
-                        <div class="form-input" style="background-color: #e9ecef; color: #555;">$(uptime)</div>
-                    </div>
-
-                    $(if session-time-left)
-                    <div class="input-group">
-                        <label class="input-label">Sisa Waktu</label>
-                        <div class="form-input" style="background-color: #ffeeba; color: #856404;">$(session-time-left)</div>
-                    </div>
-                    $(endif)
 
                     $(if blocked == 'yes')
                     <div class="input-group">
@@ -87,13 +80,16 @@
                     </div>
                     $(endif)
 
-                    <button type="button" onclick="location.reload();" class="btn-primary" style="background-color: #d1e0e9; margin-top: 10px;">Refresh Status</button>
 
-                    <button type="submit" class="btn-primary" style="background-color: #dc3545; margin-top: 10px;">Log Out</button>
+                    <button type="submit" class="btn-primary-status" style="background-color: #dc3545; margin-top: 10px;">Log Out</button>
                     
                 </form>
 
-                <div class="footer-text">&copy; PT. SMI</div>
+                <div class="footer-text">
+                    <a href="https://ptsmi.com/" style="text-decoration: none; color: inherit;">
+                        &copy; PT. SMI
+                    </a>
+                </div>
             </div>
         </div>
 

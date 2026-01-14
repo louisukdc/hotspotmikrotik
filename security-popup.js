@@ -4,10 +4,13 @@ let overlay = document.getElementById("overlay");
 
 let slideIndex = 1;
 showDivs(slideIndex);
-const SLIDE_INTERVAL = 3000; 
+const SLIDE_INTERVAL = 8000; 
 let slideshowTimer;
 let slideWrapper;
 
+let slideInterval = setInterval(function() {
+        plusDivs(1);
+}, 8000);
 
 function plusDivs(n) {
     clearInterval(slideshowTimer); 
@@ -119,6 +122,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     showDivs(slideIndex);
     startSlideshow();
     setTimeout(openPopup, 500); 
+
+    if (overlay) {
+        overlay.addEventListener("click", closePopup);
+    }
 });
 
 

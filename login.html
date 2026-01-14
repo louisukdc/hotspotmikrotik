@@ -18,7 +18,7 @@
         <input type="hidden" name="popup" value="true" />
     </form>
     <script src="md5.js"></script>
-    <div class="overlay" id="overlay"></div>
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
     
     <div class="popup" id="security-popup">
         <div class="security-content">
@@ -49,8 +49,10 @@
     <div class="login-container">
         <div class="login-form-side">
             <div class="form-wrapper">
-                <img src="img/logo3.png" alt="logo_ptsmi" class="logo">                
-                <h1 class="login-title">Selamat Datang di PT. SMI</h1>
+                <img src="img/logo3x.png" alt="logo_ptsmi" class="logo">                
+                <h1 class="login-title">
+                    Welcome to PT. SMI
+                </h1>
                 <h1 class="description">Untuk mengakses internet silahkan login terlebih dahulu</h1>
 
 
@@ -87,7 +89,12 @@
                     <button type="submit" class="btn-primary">Sign In</button>
                 </form>
 
-                <div class="footer-text">&copy; PT. SMI</div>
+                <!-- <div class="footer-text" value="https://ptsmi.com/">&copy; PT. SMI</div> -->
+                <div class="footer-text">
+                    <a href="https://ptsmi.com/" style="text-decoration: none; color: inherit;">
+                        &copy; PT. SMI
+                    </a>
+                </div>
 
                     <!-- <p class="info $(if error)alert$(endif)">
                         $(if error == "") 
